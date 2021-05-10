@@ -29,7 +29,7 @@ class controls:
         resp = conn.recv(1024)
         print(resp.decode(errors='replace').strip())
 
-    def cw(degrees)):
+    def cw(degrees):
         conn.send(b('cw' + str(degrees)))
         resp = conn.recv(1024)
         print(resp.decode(errors='replace').strip())

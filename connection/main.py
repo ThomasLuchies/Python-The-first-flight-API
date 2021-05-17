@@ -6,6 +6,6 @@ if(__name__ == '__main__'):
     conn.bind(('', 9000))
     conn.connect(('192.168.10.1', 8889))
     conn.settimeout(5.0)
-    conn.send(b'land')
+    conn.send(b'streamon')
     resp = conn.recv(1024)
     print(resp.decode(errors='replace').strip())

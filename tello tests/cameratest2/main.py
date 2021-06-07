@@ -5,7 +5,7 @@ hog = cv2.HOGDescriptor()
 hog.setSVMDetector(cv2.HOGDescriptor_getDefaultPeopleDetector())
 
 cv2.startWindowThread()
-fullcap = cv2.VideoCapture(0)
+fullcap = cv2.VideoCapture("udp://0.0.0.0:11111")
 
 while(True):
     ret, frame = fullcap.read()
@@ -17,6 +17,16 @@ while(True):
     boxes = np.array([[x, y, x + w, y + h] for (x, y, w, h) in boxes])
 
     for (xA, yA, xB, yB) in boxes:
+        middenX = xA/2 + xB/2
+        middenY = yA/2 + yB/2
+        print("__________________")
+        print(middenX)
+        print(middenY)
+        print("__________________")
+        cv2.putText(frame,(str(middenX) + "," + str(middenY)),(int(middenX),int(yA - 10)), cv2.FONT_HERSHEY_SIMPLEX,1,(0, 255, 0),2,cv2.LINE_AA)
+        cv2.circle(frame, (int(middenX),int(middenY)), 10, (0, 255, 0), 4)
+        #cv2.circle(frame,(int(middenX),int(middenY)),(int(middenX),int(middenY)),
+        #(0,255,0),2)
         cv2.rectangle(frame, (xA, yA), (xB, yB),
                       (0, 255, 0), 2)
 

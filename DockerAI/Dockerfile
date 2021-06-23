@@ -1,7 +1,7 @@
 FROM python:3.8.0-buster
 
 #Directory for the api
-WORKDIR /API
+WORKDIR .
 
 #install dependancies
 COPY requirements.txt .

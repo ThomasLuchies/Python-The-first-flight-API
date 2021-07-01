@@ -23,14 +23,14 @@ thread_lock = Lock()
 
 @app.route("/Direction", methods=["get"])
 def index():
-    with open("direction.json", 'r') as j:
+    with open("../../DockerAI/AI/direction.json", 'r') as j:
         data = json.loads(j.read())
     print(data)
     return data
 
 @app.route("/Stream", methods=["get"])
 def test_message():
-    return send_file('stream.png', mimetype='image/png')
+    return send_file('../../DockerAI/AI/stream.png', mimetype='image/png')
 
 if __name__ == "__main__":
     app.run(debug = True)

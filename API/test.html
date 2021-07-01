@@ -1,0 +1,8 @@
+<image id="stream" src="http://127.0.0.1:5000/Stream"></image>
+
+<script type="text/javascript">
+    setInterval(() =>
+    {
+        document.getElementById('stream').src = "http://127.0.0.1:5000/Stream?" + new Date().getTime();;
+    }, 50);
+</script>

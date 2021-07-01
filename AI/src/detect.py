@@ -63,7 +63,7 @@ def detect(weights='models/coneDetectionV2.pt',  # model.pt path(s)
 
     # Set Dataloader
     vid_path, vid_writer = None, None
-    view_img = check_imshow()
+    #view_img = check_imshow()
     cudnn.benchmark = True  # set True to speed up constant image size inference
     dataset = LoadStreams('udp://0.0.0.0:11111', img_size=imgsz, stride=stride)
 
@@ -119,11 +119,12 @@ def detect(weights='models/coneDetectionV2.pt',  # model.pt path(s)
                     iteration += 1
                     
             # Stream results
+            cv2.imwrite('/shared-volume/stream.png', im0)
+            print(im0)
             if view_img:
-                cv2.imwrite('stream.png', im0)
                 cv2.imshow(str(p), im0)
                 cv2.waitKey(1)  # 1 millisecond
-        with open("direction.json", "w") as JSONFile:
+        with open("/shared-volume/direction.json", "w") as JSONFile:
             JSONFile.write(json.dumps(coneArray))
             JSONFile.close()
 

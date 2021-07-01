@@ -5,17 +5,19 @@ WORKDIR .
 
 #install dependancies
 COPY requirements.txt .
-RUN pip install -r requirements.txt
+RUN pip3 install --upgrade pip
+COPY requirements.txt .
+RUN pip3 --no-cache install -r requirements.txt
 
 RUN apt-get update 
 RUN apt-get install ffmpeg libsm6 libxext6  -y
 RUN apt-get install qt5-default -y
 
-RUN pip install cmake
+RUN pip3 install cmake
 RUN touch CMakeLists.txt
 
 RUN cmake -DWITH_QT=OFF -DWITH_GTK=OFF
 
-COPY /API .
+COPY /src .
 
-CMD ["python", "detect.py"]
+CMD ["python3", "detect.py"]

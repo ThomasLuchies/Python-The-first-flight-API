@@ -1,12 +1,15 @@
-FROM python:3.8.0-buster
+FROM python:3.8
 
 #Directory for the api
-WORKDIR API/
+WORKDIR src/
 
 #install dependancies
+RUN pip3 install --upgrade pip
 COPY requirements.txt .
-RUN pip install -r requirements.txt
+RUN pip3 --no-cache install -r requirements.txt
 
-COPY /API .
+COPY /src .
 
-CMD ["python", "main.py"]
+EXPOSE 5000
+ENTRYPOINT [ "python3" ]
+CMD ["main.py"]

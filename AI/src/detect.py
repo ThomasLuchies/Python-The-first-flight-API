@@ -4,6 +4,7 @@ import torch.backends.cudnn as cudnn
 import time
 import argparse
 import json
+import utils.tello_code_execution as tello
 from multiprocessing import Process, Pipe
 from pathlib import Path
 from models.experimental import attempt_load
@@ -41,7 +42,7 @@ def detect(weights='models/coneDetectionV2.pt',  # model.pt path(s)
     nosave = True
     weights = 'models/coneDetectionV2.pt'
 
-
+    tello.connect()
     # Initialize
     set_logging()
     device = select_device(device)

@@ -24,7 +24,7 @@ docker volume create shared-resources
 
 
 
-# Setup API
+## Setup API
 
 To setup the API you need to first build it. You can do that with the following command:
 

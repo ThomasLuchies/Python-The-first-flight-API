@@ -120,11 +120,11 @@ def detect(weights='models/coneDetectionV2.pt',  # model.pt path(s)
                     iteration += 1
                     
             # Stream results
-            cv2.imwrite('stream.png', im0)
+            cv2.imwrite('/shared-resources/stream.png', im0)
             if view_img:
                 cv2.imshow(str(p), im0)
                 cv2.waitKey(1)  # 1 millisecond
-        with open("direction.json", "w") as JSONFile:
+        with open("/shared-resources/direction.json", "w") as JSONFile:
             JSONFile.write(json.dumps(coneArray))
             JSONFile.close()
 

@@ -19,5 +19,6 @@ RUN touch CMakeLists.txt
 RUN cmake -DWITH_QT=OFF -DWITH_GTK=OFF
 
 COPY /src .
+EXPOSE 11111
 
 CMD ["python3", "detect.py"]

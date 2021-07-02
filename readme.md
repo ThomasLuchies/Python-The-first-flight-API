@@ -56,3 +56,6 @@ After the docker image has been build it you need to run it. You can do that wit
 docker run -ti --rm -v shared-volume:/shared-volume --network=host -v /run/dbus/:/run/dbus/ -p 11111:11111 ai
 ```
 
+## API documentation
+
+To view the API documentation download postman from the following link: https://www.postman.com/. Once downloaded click on FIle->import and select TelloDroneAPI.postman_collection.json in the API folder.ss
